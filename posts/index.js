@@ -1,10 +1,12 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const { randomBytes } = require('crypto')
+const cors = require('cors')
+
 const app = express()
 
 app.use(bodyParser.json())
-
+app.use(cors())
 //This is store in memory (downside we will loose all our data)
 const posts = {
 

@@ -14,7 +14,7 @@ const Posts = () => {
             <form onSubmit={handleSubmit}>
                 <div className="form-group" >
                     <label>Title</label>
-                    <input className='form-control' value={title} onChange={(e) => setTitle(e.target.value) } type='text'></input>
+                    <input className='form-control' value={title} onChange={(e) => setTitle(e.target.value) } type='text'/>
                 </div>
                 <button className='btn btn-primary' type='submit'>Submit</button>
             </form>

@@ -8,6 +8,7 @@ const App = () => {
             <Posts />
             <hr />
             <PostList />
+            <hr />
         </div>
      );
 }

@@ -3,15 +3,15 @@ const bodyParser = require('body-parser')
 const { randomBytes } = require('crypto')
 const cors = require('cors')
 const axios = require('axios')
+const morgan =  require('morgan')
 
 const app = express()
 
 app.use(bodyParser.json())
+app.use(morgan('tiny'))
 app.use(cors())
 //This is store in memory (downside we will loose all our data)
-const posts = {
-
-}
+const posts = {}
 app.get('/posts', (req,res)=>{
     res.status(200)
     res.send(posts)
@@ -34,6 +34,11 @@ await axios('http://localhost:4005/events', {
 })
 
     res.send(posts[id])
+})
+
+app.post('/events', (req,res) => {
+    console.log('Received Event', req.body.type)
+    res.send({})
 })
 
 app.listen(4000, () => {

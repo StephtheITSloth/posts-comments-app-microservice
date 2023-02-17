@@ -1,12 +1,12 @@
 const express =  require('express')
 const cors =  require('cors')
-const BodyParser = require('body-parser')
+const bodyParser = require('body-parser')
 const app =  express()
 
 const posts = {}
 
+app.use(bodyParser.json())
 app.use(cors())
-app.use(BodyParser.json)
 
 app.get('/posts', (req,res) => {
     res.send(posts)
@@ -16,7 +16,7 @@ app.get('/posts', (req,res) => {
 app.post('/events', (req,res) => {
     const {type, data} = req.body
 
-    if(type === 'PostCreate'){
+    if(type === 'PostCreated'){
         const {id, title} = data
         posts[id] = { id, title, comments: []}
     }

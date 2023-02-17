@@ -7,7 +7,7 @@ const Comments = ({postId}) => {
 const handleSubmit = async (e) => {
     e.preventDefault()
     await axios.post(`http://localhost:4001/posts/${postId}/comments`,{
-        comment
+        data: comment
     })
     setComment('')
 }
@@ -18,7 +18,7 @@ const handleSubmit = async (e) => {
         <form onSubmit={handleSubmit}>
             <div className='form-group'>
                 <label>Content</label>
-                <input className='form-control' onChange={(e) => setComment(e.target.value)} value={comment} type='text'/>
+                <input className='form-control' onChange={(e) => setComment(e.target.value)} value={comment}/>
             </div>
             <button className='btn btn-primary' type='submit'>Submit</button>
         </form>
